@@ -32,6 +32,7 @@ public class Program {
         try {
             acc.withdraw(withdrawAmount);
             System.out.println("New balance: " + String.format("%.2f", acc.getBalance()));
+
         }catch (AccountExeption e){
             System.out.println("Withdraw error: " + e.getMessage());
         }

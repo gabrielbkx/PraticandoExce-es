@@ -52,14 +52,18 @@ public class Account {
         this.balance += amount;
     }
 
-    public void withdraw(Double amount) throws AccountExeption {
+    public void withdraw(Double amount) {
+
+        validateWithdraw(amount);
+        this.balance -= amount;
+    }
+    public void validateWithdraw(double amount){
+
         if (amount > this.balance) {
             throw new AccountExeption(" Not enough balance");
         }
-        if (amount > withdrawlimit){
+        if (amount > withdrawlimit) {
             throw new AccountExeption("The amount exceeds withdraw limit");
-
         }
-        this.balance -= amount;
     }
 }
