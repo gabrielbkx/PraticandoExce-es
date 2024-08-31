@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class Program {
     public static void main(String[] args)  {
         Locale.setDefault(Locale.US);
-        try {
 
             Scanner sc = new Scanner(System.in);
             System.out.println("Enter account data");
@@ -30,11 +29,14 @@ public class Program {
 
             Account acc = new Account(number, holder, balance, withdrawLimit);
 
+        try {
             acc.withdraw(withdrawAmount);
-            System.out.println("New balance: " + String.format("%.2f", acc.getBalance()));
-            sc.close();
         }catch (AccountExeption e){
             System.out.println("Withdraw error: " + e.getMessage());
+        }
+           finally {
+            System.out.println("New balance: " + String.format("%.2f", acc.getBalance()));
+            sc.close();
         }
     }
 }
